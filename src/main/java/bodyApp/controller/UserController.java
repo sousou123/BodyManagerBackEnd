@@ -1,6 +1,8 @@
 package bodyApp.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -33,6 +35,20 @@ public class UserController {
         }
         return ResponseEntity.ok().body(user);
     }
+    
+    
+    @GetMapping("/coach/")
+    public ResponseEntity findAllCoach() {
+    	
+        
+        List<User> users = userRepository.findAll();
+        
+        users.forEach(character -> character.getCoach().equals(true));
+        return ResponseEntity.ok().body(users);
+        
+
+    }
+   
     
 
     @PostMapping("/create/")

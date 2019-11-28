@@ -65,6 +65,15 @@ public class User implements Serializable {
     public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
+    
+    public Boolean getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Boolean coach) {
+        this.coach = coach;
+    }
+    
 
     public String getFirstName() {
         return firstName;

@@ -54,6 +54,8 @@ public class ActivityController {
 	    }
 	    */
 	 
+	 
+	 
 	
 	 @GetMapping("/all/{idUser}")
 	    public ResponseEntity findAllUserActivity(@PathVariable Long idUser) {
