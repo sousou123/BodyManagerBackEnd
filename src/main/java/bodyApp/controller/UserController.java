@@ -37,9 +37,6 @@ public class UserController {
 
     @PostMapping("/create/")
     public ResponseEntity createUser(@RequestBody User user) {
-        if (user == null) {
-            return ResponseEntity.badRequest().body("Cannot create user with empty fields");
-        }
         User createdUser = userRepository.save(user);
         return ResponseEntity.ok(createdUser);
     }
