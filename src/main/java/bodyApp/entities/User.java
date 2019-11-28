@@ -7,6 +7,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -51,12 +52,12 @@ public class User implements Serializable {
     @OneToMany
     @JoinColumn(name= "idComment")
     private List<Comment>userComment;
-    
+   
+   
     
     public User() {
     }
 
-    @JsonIgnore
     public Long getIdUser() {
         return idUser;
     }
@@ -113,6 +114,7 @@ public class User implements Serializable {
     public void setActivity(List<Activity>activity) {
         this.activity = activity;
     }
+
 
    
 }

@@ -33,8 +33,9 @@ public class UserController {
         }
         return ResponseEntity.ok().body(user);
     }
+    
 
-    @PostMapping("/")
+    @PostMapping("/create/")
     public ResponseEntity createUser(@RequestBody User user) {
         if (user == null) {
             return ResponseEntity.badRequest().body("Cannot create user with empty fields");

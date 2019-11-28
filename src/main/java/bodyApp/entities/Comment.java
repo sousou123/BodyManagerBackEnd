@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Comment")
 public class Comment implements Serializable {
@@ -37,6 +39,7 @@ public class Comment implements Serializable {
 	public void setId(Long idComment) {
 		this.idComment = idComment;
 	}
+	@JsonIgnore
 	public String getCommentaire() {
 		return commentaire;
 	}

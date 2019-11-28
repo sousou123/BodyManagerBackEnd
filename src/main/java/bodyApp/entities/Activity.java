@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,15 +25,21 @@ public class Activity implements Serializable {
 	private String durationActivity;
 
     private String contentActivity;
+    
+    private String describtionActivity;
 
     private Double price;
 
     @Lob
     private byte[] photo;
+    
+    @Transient
+    private Long idOwner;
 
-    @OneToMany
+
+    @ManyToOne
     @JoinColumn(name = "idUser")
-    private List<User>user;
+    private User user;
     
     @OneToMany
     @JoinColumn(name= "idComment")
@@ -93,19 +100,19 @@ public class Activity implements Serializable {
 	public byte[] getPhoto() {
 		return photo;
 	}
-
+	
 
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 
 	@JsonIgnore
-	public List<User> getUser() {
+	public User getUser() {
 		return user;
 	}
 
 
-	public void setUser(List<User> user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
@@ -133,6 +140,22 @@ public class Activity implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	 public Long getIdOwner() {
+	        return idOwner;
+	    }
+
+	    public void setIdOwner(Long idOwner) {
+	        this.idOwner = idOwner;
+	    }
+
+		public String getDescribtionActivity() {
+			return describtionActivity;
+		}
+
+		public void setDescribtionActivity(String describtionActivity) {
+			this.describtionActivity = describtionActivity;
+		}
 
 
 
